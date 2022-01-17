@@ -27,10 +27,7 @@ And: And is used to combine two or more same type of action.
 
 -Reports for each module are written into their respective /target directories.Tests result in a HTML report for each feature. In the case of test failures,
  a screen-shot of the UI at the point of failure is embedded into the report.
-## Reporting
 
--Reports for each module are written into their respective /target directories.Tests result in a HTML report for each feature. In the case of test failures,
- a screen-shot of the UI at the point of failure is embedded into the report.
 ## Tools
 
  - Maven
