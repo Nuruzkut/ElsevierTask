@@ -1,4 +1,4 @@
-@wip
+@test
 Feature: Buying Summer Dress
 
   Background:
@@ -6,7 +6,7 @@ Feature: Buying Summer Dress
 
   Scenario Outline: Verify an item can be added to cart
 
-    When the user hover over DRESSES and clicks on SUMMER DRESSES
+    When the user hovers over DRESSES and clicks on SUMMER DRESSES
     And clicks on the image of the dress
     And selects "<quantity>", "<size>" and "<color>" of the dress
     And adds one of the SUMMER DRESSES to the cart
@@ -19,8 +19,7 @@ Feature: Buying Summer Dress
     Examples:
 
       | quantity | size | color  |
-      | 1        | S  | Black  |
-      | 2        | M   | Orange |
-      | 3        | L    | Blue   |
-      | 4        |  L   | Yellow |
+      | 1        | S    | Black  |
+      | 2        | M    | Orange |
+
 

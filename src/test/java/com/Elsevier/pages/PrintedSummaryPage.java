@@ -21,13 +21,13 @@ public class PrintedSummaryPage extends BasePage {
     public WebElement quantityBox;
 
 
-    public void selectColor(String colorName){
-        WebElement color = Driver.get().findElement(By.cssSelector("a[name='"+ colorName +"']"));
+    public void selectColor(String colorName) {
+        WebElement color = Driver.get().findElement(By.cssSelector("a[name='" + colorName + "']"));
         color.click();
     }
 
 
-    public void selectSize(String sizeName){
+    public void selectSize(String sizeName) {
         WebElement size = Driver.get().findElement(By.cssSelector("#group_1"));
         Select select = new Select(size);
         select.selectByVisibleText(sizeName);

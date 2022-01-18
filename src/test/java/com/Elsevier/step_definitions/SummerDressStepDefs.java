@@ -19,26 +19,25 @@ import org.openqa.selenium.interactions.Actions;
 public class SummerDressStepDefs {
 
     PrintedSummaryPage printedSummaryPage = new PrintedSummaryPage();
-    SummerDressesPage summerDressesPage= new SummerDressesPage();
+    SummerDressesPage summerDressesPage = new SummerDressesPage();
+    ShoppingCartSummaryPage shoppingCartSummaryPage = new ShoppingCartSummaryPage();
+    AuthenticationPage authenticationPage = new AuthenticationPage();
 
 
     @Given("the user navigates to main page")
     public void the_user_navigates_to_main_page() {
         String url = ConfigurationReader.get("url");
-        System.out.println("Navigating to " + url);
         Driver.get().get(url);
     }
 
-    @When("the user hover over DRESSES and clicks on SUMMER DRESSES")
+    @When("the user hovers over DRESSES and clicks on SUMMER DRESSES")
     public void the_user_hover_over_DRESSES_and_clicks_on_SUMMER_DRESSES() {
         Actions action = new Actions(Driver.get());
-        SummerDressesPage summerDressesPage = new SummerDressesPage();
+
         BrowserUtils.waitForVisibility(summerDressesPage.dressesTab, 10);
         action.moveToElement(summerDressesPage.dressesTab).perform();
         summerDressesPage.summerDressesSubTab.click();
     }
-
-
 
 
     @When("adds one of the SUMMER DRESSES to the cart")
@@ -48,32 +47,36 @@ public class SummerDressStepDefs {
 
 
     }
+
     @Then("verify successfully added message appeared in the pop-up window")
     public void verify_successfully_added_message_appeared_in_the_pop_up_window() {
         Assert.assertTrue(printedSummaryPage.successMessage.isDisplayed());
     }
+
     @When("the user clicks on proceed to checkout button in the pop-up window")
     public void the_user_clicks_on_proceed_to_checkout_button() {
-       printedSummaryPage.checkoutButton.click();
+        printedSummaryPage.checkoutButton.click();
 
 
     }
+
     @Then("verify that {string} is displayed")
     public void verify_that_is_displayed(String expectedMessage) {
-        WebElement actualMessage= Driver.get().findElement(By.id("cart_title"));
-        //Assert.assertTrue(message.isDisplayed());
+        WebElement actualMessage = Driver.get().findElement(By.id("cart_title"));
         Assert.assertTrue(actualMessage.getText().contains(expectedMessage));
 
     }
+
     @When("the user clicks on proceed to checkout button on shopping-cart summary")
     public void the_user_clicks_on_proceed_to_checkout_button_on_shopping_cart_summary() {
-       ShoppingCartSummaryPage shoppingCartSummaryPage= new ShoppingCartSummaryPage();
-       shoppingCartSummaryPage.SecondProceedButton.click();
+
+        shoppingCartSummaryPage.SecondProceedButton.click();
 
     }
+
     @Then("verify that sign-in button is displayed")
     public void verify_that_sign_in_button_is_diplayed() {
-        AuthenticationPage authenticationPage= new AuthenticationPage();
+
         Assert.assertTrue("Sign in button is not displayed", authenticationPage.signInButton.isDisplayed());
     }
 

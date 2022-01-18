@@ -8,14 +8,8 @@ import java.util.List;
 public class SummerDressesPage extends BasePage {
 
 
-    @FindBy (partialLinkText = "Printed Summer Dress")
+    @FindBy(partialLinkText = "Printed Summer Dress")
     public WebElement summerDresses;
-
-
-
-
-
-
 
 
 }
